@@ -37,24 +37,19 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
   button,select,input{font-family:inherit}
-
   .page{max-width:880px;margin:0 auto;padding:2rem 1.25rem 4rem}
-
   .header-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.08em;color:var(--text-muted);text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
   .header-title{font-size:26px;font-weight:600;letter-spacing:-0.02em}
   .header-sub{font-size:13px;color:var(--text-muted);margin-top:4px;margin-bottom:1.5rem}
   .live-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;letter-spacing:0.06em;padding:3px 9px;border-radius:99px;background:var(--signed-bg);color:var(--signed-color);border:0.5px solid var(--signed-border)}
   .live-dot{width:6px;height:6px;border-radius:50%;background:var(--green-mid);animation:blink 2s infinite;display:inline-block}
   @keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
-
-  /* Tabs */
   .tabs{display:flex;gap:0;border-bottom:1.5px solid var(--border);margin-bottom:1.5rem}
   .tab-btn{font-size:14px;font-weight:500;padding:10px 20px;background:none;border:none;border-bottom:2.5px solid transparent;margin-bottom:-1.5px;cursor:pointer;color:var(--text-muted);transition:color 0.15s,border-color 0.15s}
   .tab-btn:hover{color:var(--text)}
   .tab-btn.active{color:var(--text);border-bottom-color:var(--text)}
   .tab-panel{display:none}
   .tab-panel.active{display:block}
-
   .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.25rem}
   .metric{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius);padding:12px 16px}
   .metric.accent{background:var(--signed-bg);border-color:var(--signed-border)}
@@ -63,20 +58,16 @@
   .metric-value{font-size:24px;font-weight:600;letter-spacing:-0.02em}
   .metric.accent .metric-value{color:var(--signed-color)}
   .metric-sub{font-size:13px;font-weight:400;color:var(--text-muted)}
-
   .progress-wrap{margin-bottom:1.25rem}
   .progress-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);margin-bottom:6px}
   .progress-bar-bg{height:6px;background:var(--surface2);border-radius:99px;overflow:hidden;border:0.5px solid var(--border)}
   .progress-bar-fill{height:100%;border-radius:99px;transition:width 0.5s ease}
-
   .legend{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
   .badge{display:inline-flex;align-items:center;font-size:11px;padding:3px 10px;border-radius:99px;white-space:nowrap;border:0.5px solid}
-
   .table-wrap{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:1rem}
   .table-head{display:grid;padding:8px 16px;background:var(--surface2);border-bottom:0.5px solid var(--border)}
   .th{font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em}
   .th.center{text-align:center}
-
   .ae-row-wrap{border-bottom:0.5px solid var(--border)}
   .ae-row-wrap:last-child{border-bottom:none}
   .ae-row{display:grid;padding:12px 16px;cursor:pointer;transition:background 0.1s;align-items:center}
@@ -91,17 +82,14 @@
   .ae-stat.muted{color:var(--text-faint)}
   .signed-pill{font-size:12px;font-weight:600;padding:2px 12px;border-radius:99px;background:var(--signed-bg);color:var(--signed-color);border:0.5px solid var(--signed-border);display:inline-block}
   .chevron-cell{display:flex;align-items:center;justify-content:center}
-
   .ae-detail{padding:0 16px 16px;border-top:0.5px solid var(--border);background:var(--surface2)}
   .clients-table{width:100%;border-collapse:collapse;margin-bottom:12px;table-layout:fixed}
   .clients-table th{text-align:left;font-size:11px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.05em;padding:10px 0 6px}
   .clients-table th:nth-child(2),.clients-table th:nth-child(3){padding-left:10px}
   .clients-table td{padding:5px 0;font-size:13px;vertical-align:middle}
   .clients-table td:nth-child(2),.clients-table td:nth-child(3){padding-left:10px}
-
   .status-select,.pkg-select{font-size:11px;padding:4px 8px;border-radius:99px;cursor:pointer;width:100%;font-family:'DM Sans',sans-serif;outline:none}
   .pkg-select{border-radius:6px;background:var(--surface);color:var(--text-muted);border:0.5px solid var(--border-strong);font-size:12px}
-
   .add-client-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   .add-input{flex:1 1 140px;min-width:110px;font-size:13px;padding:6px 12px;border-radius:var(--radius);border:0.5px solid var(--border-strong);background:var(--surface);color:var(--text);outline:none;transition:border-color 0.15s}
   .add-input:focus{border-color:var(--blue-mid)}
@@ -111,21 +99,16 @@
   .add-btn:hover{opacity:0.85}
   .del-btn{background:none;border:none;cursor:pointer;color:var(--text-faint);padding:2px 4px;opacity:0.5;transition:opacity 0.15s}
   .del-btn:hover{opacity:1;color:#E24B4A}
-
   .add-ae-row{display:flex;gap:8px;margin-bottom:1rem}
   .add-ae-input{flex:1;font-size:13px;padding:8px 14px;border-radius:var(--radius);border:0.5px solid var(--border-strong);background:var(--surface);color:var(--text);outline:none;transition:border-color 0.15s}
   .add-ae-input:focus{border-color:var(--blue-mid)}
   .add-ae-btn{font-size:13px;font-weight:500;padding:8px 18px;border-radius:var(--radius);background:var(--surface);color:var(--text);border:0.5px solid var(--border-strong);cursor:pointer;white-space:nowrap;transition:background 0.1s}
   .add-ae-btn:hover{background:var(--surface2)}
-
   .sync-bar{display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:0.75rem;padding:0 2px}
   .export-btn{background:none;border:0.5px solid var(--border);border-radius:6px;padding:4px 8px;cursor:pointer;color:var(--text-muted);font-size:12px;display:flex;align-items:center;gap:4px;transition:background 0.1s}
   .export-btn:hover{background:var(--surface)}
   .empty-msg{font-size:12px;color:var(--text-faint);padding:6px 0}
-
-  /* US grid: #, name, sched, attended, signed, chevron */
   .grid-us{grid-template-columns:48px 1fr 62px 72px 76px 36px}
-  /* SA grid: #, name, sched, attended, chevron */
   .grid-sa{grid-template-columns:48px 1fr 62px 72px 36px}
 </style>
 </head>
@@ -137,307 +120,41 @@
   </div>
   <div class="header-title">AE Sprint Leaderboard</div>
   <div class="header-sub">Goal: 90 meetings in 30 days · 20 AEs · South Africa &amp; USA</div>
-
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('us')">🇺🇸 United States</button>
     <button class="tab-btn" onclick="switchTab('sa')">🇿🇦 South Africa</button>
   </div>
-
   <div id="tab-us" class="tab-panel active"></div>
   <div id="tab-sa" class="tab-panel"></div>
 </div>
-
 <script>
-const SS = {
-  "Signed for Trial":         {bg:"var(--signed-bg)",  color:"var(--signed-color)",  border:"var(--signed-border)"},
-  "Sign up for Paid version": {bg:"var(--paid-bg)",    color:"var(--paid-color)",    border:"var(--paid-border)"},
-  "Demo Attended":            {bg:"var(--attended-bg)",color:"var(--attended-color)",border:"var(--attended-border)"},
-  "Follow up Scheduled":      {bg:"var(--followup-bg)",color:"var(--followup-color)",border:"var(--followup-border)"},
-  "Demo Scheduled":           {bg:"var(--sched-bg)",   color:"var(--sched-color)",   border:"var(--sched-border)"},
-};
-const STATUSES = Object.keys(SS);
-const PKGS = ["","Foundation","Advanced","Premium","Elite"];
-const SIGNED_S = new Set(["Signed for Trial","Sign up for Paid version"]);
-const ATTENDED_S = new Set(["Demo Attended","Follow up Scheduled","Signed for Trial","Sign up for Paid version"]);
-const GOAL = 90;
-const TROPHY = ["🥇","🥈","🥉"];
-
-const REGIONS = {
-  us: {
-    label: "United States",
-    objective: "Secure AI Demos",
-    sk: "netsurit_us_v6",
-    showSigned: true,
-    init: [
-      {id:1, name:"Adison Kyslinger", clients:[
-        {name:"Senior Housing Partners",status:"Signed for Trial",pkg:"Foundation"},
-        {name:"Kunk Law",status:"Signed for Trial",pkg:"Foundation"},
-        {name:"Buckhorn",status:"Signed for Trial",pkg:"Foundation"},
-        {name:"Facilities Electric",status:"Follow up Scheduled",pkg:""},
-        {name:"Dulworth",status:"Demo Scheduled",pkg:""},
-        {name:"WarrenSW",status:"Demo Scheduled",pkg:""},
-        {name:"BIC",status:"Demo Attended",pkg:""},
-        {name:"Auto Finance",status:"Demo Attended",pkg:""},
-        {name:"Clovis",status:"Demo Attended",pkg:""},
-        {name:"J Berry",status:"Demo Attended",pkg:""},
-        {name:"Chilton",status:"Demo Scheduled",pkg:""},
-        {name:"TOMCO",status:"Demo Scheduled",pkg:""},
-      ]},
-      {id:2, name:"Katya Yushanova", clients:[
-        {name:"Blair & Potts",status:"Demo Attended",pkg:""},
-        {name:"Soule, Blake & Wechsler",status:"Demo Attended",pkg:""},
-        {name:"Tal",status:"Demo Scheduled",pkg:""},
-      ]},
-      {id:3, name:"Kerry Marc Goldflam", clients:[
-        {name:"The Royalty Network",status:"Signed for Trial",pkg:"Foundation"},
-        {name:"Security Council Report",status:"Demo Attended",pkg:""},
-      ]},
-      {id:4, name:"Kyle Little", clients:[{name:"Canyon Crossroads Animal Hosp.",status:"Demo Attended",pkg:""}]},
-      {id:5, name:"Bo Mthombeni", clients:[]},
-      {id:6, name:"Brooks Bornhofft", clients:[{name:"Community Concepts",status:"Signed for Trial",pkg:"Advanced"}]},
-      {id:7, name:"Dan Edge", clients:[
-        {name:"Whitestone",status:"Signed for Trial",pkg:"Foundation"},
-        {name:"Deep Foundations",status:"Signed for Trial",pkg:"Foundation"},
-        {name:"Pollock Krasner Foundation",status:"Sign up for Paid version",pkg:""},
-        {name:"MacVean Lewis Sherwin & McDermott",status:"Demo Scheduled",pkg:""},
-      ]},
-      {id:8, name:"Gilbert Verbiest", clients:[]},
-      {id:9, name:"Jeremy Cohen", clients:[]},
-      {id:10, name:"Katie Paulson", clients:[]},
-      {id:11, name:"Shekhar Naidoo", clients:[]},
-    ]
-  },
-  sa: {
-    label: "South Africa",
-    objective: "Discovery Meetings",
-    sk: "netsurit_sa_v4",
-    showSigned: false,
-    init: [
-      {id:101, name:"Julius Keyser", clients:[
-        {name:"Client 1",status:"Demo Attended",pkg:""},
-        {name:"Client 2",status:"Demo Attended",pkg:""},
-        {name:"Client 3",status:"Demo Scheduled",pkg:""},
-      ]},
-      {id:102, name:"Dharmesh Dullabh", clients:[
-        {name:"Client 1",status:"Demo Scheduled",pkg:""},
-        {name:"Client 2",status:"Demo Scheduled",pkg:""},
-      ]},
-      {id:103, name:"Hugo Wessels", clients:[
-        {name:"Client 1",status:"Demo Attended",pkg:""},
-        {name:"Client 2",status:"Demo Scheduled",pkg:""},
-        {name:"Client 3",status:"Demo Scheduled",pkg:""},
-      ]},
-      {id:104, name:"Kyle Osler", clients:[
-        {name:"Client 1",status:"Demo Attended",pkg:""},
-      ]},
-      {id:105, name:"Dean Naidoo", clients:[]},
-      {id:106, name:"Karen Owen", clients:[]},
-      {id:107, name:"Matt Schlebusch", clients:[]},
-      {id:108, name:"Robert Batey", clients:[]},
-      {id:109, name:"Theo Mashego", clients:[
-        {name:"Adviceworx",status:"Signed for Trial",pkg:"Foundation"},
-      ]},
-    ]
-  }
-};
-
-let state = {
-  activeTab: "us",
-  expanded: {us: new Set(), sa: new Set()},
-  pending: {us: {}, sa: {}},
-  newAE: {us: "", sa: ""},
-  data: {
-    us: JSON.parse(localStorage.getItem(REGIONS.us.sk) || "null") || REGIONS.us.init,
-    sa: JSON.parse(localStorage.getItem(REGIONS.sa.sk) || "null") || REGIONS.sa.init,
-  },
-  ts: {
-    us: localStorage.getItem(REGIONS.us.sk + "_ts") || null,
-    sa: localStorage.getItem(REGIONS.sa.sk + "_ts") || null,
-  }
-};
-
-function save(region) {
-  localStorage.setItem(REGIONS[region].sk, JSON.stringify(state.data[region]));
-  state.ts[region] = Date.now();
-  localStorage.setItem(REGIONS[region].sk + "_ts", state.ts[region]);
-  renderRegion(region);
-}
-
-function mutate(region, fn) { fn(); save(region); }
-
-const stats = clients => ({
-  signed:   clients.filter(c => SIGNED_S.has(c.status)).length,
-  attended: clients.filter(c => ATTENDED_S.has(c.status)).length,
-  sched:    clients.length,
-});
-
-const ranked = data => [...data].sort((a, b) => {
-  const sa = stats(a.clients), sb = stats(b.clients);
-  if (sb.signed !== sa.signed) return sb.signed - sa.signed;
-  if (sb.attended !== sa.attended) return sb.attended - sa.attended;
-  return sb.sched - sa.sched;
-});
-
-const fmtTime = ts => ts ? new Date(Number(ts)).toLocaleString([], {day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}) : "Never";
-const badgeStyle = s => { const x = SS[s]||SS["Demo Scheduled"]; return `background:${x.bg};color:${x.color};border-color:${x.border}`; };
-
-function renderRegion(region) {
-  const cfg = REGIONS[region];
-  const r = ranked(state.data[region]);
-  const total = state.data[region].reduce((s, ae) => s + ae.clients.length, 0);
-  const pct = Math.min(100, Math.round(total / GOAL * 100));
-  const barColor = pct >= 100 ? "var(--green-mid)" : pct >= 66 ? "var(--blue-mid)" : "var(--amber-mid)";
-  const totalTrials = state.data[region].reduce((s, ae) => s + ae.clients.filter(c => c.status === "Signed for Trial").length, 0);
-  const gridClass = cfg.showSigned ? "grid-us" : "grid-sa";
-
-  const metric3 = `<div class="metric${totalTrials>0?' accent':''}"><div class="metric-label">Free Trial total</div><div class="metric-value">${totalTrials}</div></div>`;
-
-  const headCols = cfg.showSigned
-    ? `<span class="th">Account Executive</span><span class="th center">Sched.</span><span class="th center">Attended</span><span class="th center">Signed</span><span></span>`
-    : `<span class="th">Account Executive</span><span class="th center">Sched.</span><span class="th center">Attended</span><span></span>`;
-
-  let html = `
-  <div class="metrics">
-    <div class="metric"><div class="metric-label">Meetings logged</div><div class="metric-value">${total}<span class="metric-sub"> / ${GOAL}</span></div></div>
-    <div class="metric"><div class="metric-label">Goal progress</div><div class="metric-value" style="color:${barColor}">${pct}%</div></div>
-    ${metric3}
-  </div>
-  <div class="progress-wrap">
-    <div class="progress-labels"><span>${total} of ${GOAL} meetings</span><span style="font-weight:500;color:${barColor}">${pct}% to goal</span></div>
-    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
-  </div>
-  <div class="legend">${STATUSES.map(s => `<span class="badge" style="${badgeStyle(s)}">${s}</span>`).join("")}</div>
-  <div class="table-wrap">
-    <div class="table-head ${gridClass}"><span class="th">#</span>${headCols}</div>`;
-
-  r.forEach((ae, idx) => {
-    const st = stats(ae.clients);
-    const isOpen = state.expanded[region].has(ae.id);
-    const rank = idx + 1;
-    const nc = state.pending[region][ae.id] || {name:"",status:"Demo Scheduled",pkg:""};
-    const hasSigned = st.signed > 0;
-    const rankLabel = rank <= 3 ? `<span class="ae-rank">${TROPHY[rank-1]}</span>` : `<span class="ae-rank num">#${rank}</span>`;
-    const ns = SS[nc.status] || SS["Demo Scheduled"];
-
-    const statCells = cfg.showSigned
-      ? `<div class="ae-stat${st.sched===0?" muted":""}">${st.sched||"—"}</div>
-         <div class="ae-stat${st.attended===0?" muted":""}">${st.attended||"—"}</div>
-         <div class="ae-stat">${hasSigned ? `<span class="signed-pill">${st.signed}</span>` : `<span style="color:var(--text-faint)">—</span>`}</div>`
-      : `<div class="ae-stat${st.sched===0?" muted":""}">${st.sched||"—"}</div>
-         <div class="ae-stat${st.attended===0?" muted":""}">${st.attended||"—"}</div>`;
-
-    html += `
-    <div class="ae-row-wrap">
-      <div class="ae-row ${gridClass}${isOpen?" open":""}" onclick="toggleExpand('${region}',${ae.id})">
-        <div>${rankLabel}</div>
-        <div class="ae-name${hasSigned?" active":(st.sched>0?"":" muted")}">${ae.name}</div>
-        ${statCells}
-        <div class="chevron-cell"><i class="ti ti-chevron-${isOpen?"up":"down"}" style="font-size:15px;color:var(--text-muted)"></i></div>
-      </div>`;
-
-    if (isOpen) {
-      const pkgCol = cfg.showSigned ? `<col style="width:20%"/>` : ``;
-      const pkgTh  = cfg.showSigned ? `<th style="padding-left:10px">Package</th>` : ``;
-
-      html += `<div class="ae-detail" onclick="event.stopPropagation()">`;
-      if (ae.clients.length > 0) {
-        html += `<table class="clients-table"><colgroup><col style="width:35%"/><col style="width:${cfg.showSigned?'35%':'55%'}"/>${pkgCol}<col style="width:10%"/></colgroup>
-          <thead><tr><th>Client</th><th style="padding-left:10px">Status</th>${pkgTh}<th></th></tr></thead><tbody>`;
-        ae.clients.forEach((c, ci) => {
-          const cs = SS[c.status] || SS["Demo Scheduled"];
-          const stOpts = STATUSES.map(s => `<option value="${s}"${s===c.status?" selected":""}>${s}</option>`).join("");
-          const pkgCell = cfg.showSigned
-            ? `<td style="padding-left:10px"><select class="pkg-select" onchange="updateClient('${region}',${ae.id},${ci},'pkg',this.value)">${PKGS.map(p=>`<option value="${p}"${p===c.pkg?" selected":""}>${p||"—"}</option>`).join("")}</select></td>`
-            : ``;
-          html += `<tr>
-            <td>${c.name}</td>
-            <td style="padding-left:10px"><select class="status-select" onchange="updateClient('${region}',${ae.id},${ci},'status',this.value)" style="background:${cs.bg};color:${cs.color};border:0.5px solid ${cs.border}">${stOpts}</select></td>
-            ${pkgCell}
-            <td style="text-align:right"><button class="del-btn" onclick="removeClient('${region}',${ae.id},${ci})"><i class="ti ti-trash" style="font-size:14px"></i></button></td>
-          </tr>`;
-        });
-        html += `</tbody></table>`;
-      }
-
-      const stOpts2 = STATUSES.map(s => `<option value="${s}"${s===nc.status?" selected":""}>${s}</option>`).join("");
-      const pkgSel = cfg.showSigned
-        ? `<select class="add-pkg-sel" onchange="setPending('${region}',${ae.id},'pkg',this.value)">${PKGS.map(p=>`<option value="${p}"${p===nc.pkg?" selected":""}>${p||"No package"}</option>`).join("")}</select>`
-        : ``;
-
-      html += `<div class="add-client-row">
-        <input class="add-input" type="text" placeholder="Client name…" value="${nc.name.replace(/"/g,'&quot;')}" oninput="setPending('${region}',${ae.id},'name',this.value)" onkeydown="if(event.key==='Enter')addClient('${region}',${ae.id})"/>
-        <select class="add-status-sel" onchange="setPending('${region}',${ae.id},'status',this.value)" style="background:${ns.bg};color:${ns.color};border:0.5px solid ${ns.border}">${stOpts2}</select>
-        ${pkgSel}
-        <button class="add-btn" onclick="addClient('${region}',${ae.id})">+ Add client</button>
-      </div>`;
-      if (ae.clients.length === 0) html += `<p class="empty-msg">No clients yet — add one above.</p>`;
-      html += `</div>`;
-    }
-    html += `</div>`;
-  });
-
-  html += `</div>
-  <div class="add-ae-row">
-    <input class="add-ae-input" type="text" placeholder="Add a new AE…" value="${state.newAE[region].replace(/"/g,'&quot;')}" oninput="state.newAE['${region}']=this.value" onkeydown="if(event.key==='Enter')addAE('${region}')"/>
-    <button class="add-ae-btn" onclick="addAE('${region}')">+ Add AE</button>
-  </div>
-  <div class="sync-bar">
-    <span>Last updated: ${fmtTime(state.ts[region])}</span>
-    <button class="export-btn" onclick="exportData('${region}')"><i class="ti ti-download" style="font-size:13px"></i> Export JSON</button>
-  </div>`;
-
-  document.getElementById("tab-" + region).innerHTML = html;
-}
-
-window.switchTab = tab => {
-  state.activeTab = tab;
-  document.querySelectorAll(".tab-btn").forEach((b, i) => b.classList.toggle("active", ["us","sa"][i] === tab));
-  document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
-  document.getElementById("tab-" + tab).classList.add("active");
-};
-
-window.toggleExpand = (region, id) => {
-  state.expanded[region].has(id) ? state.expanded[region].delete(id) : state.expanded[region].add(id);
-  renderRegion(region);
-};
-window.updateClient = (region, aeId, ci, field, val) => mutate(region, () => {
-  const ae = state.data[region].find(a => a.id === aeId);
-  if (ae) ae.clients[ci][field] = val;
-});
-window.removeClient = (region, aeId, ci) => mutate(region, () => {
-  const ae = state.data[region].find(a => a.id === aeId);
-  if (ae) ae.clients.splice(ci, 1);
-});
-window.setPending = (region, aeId, field, val) => {
-  if (!state.pending[region][aeId]) state.pending[region][aeId] = {name:"",status:"Demo Scheduled",pkg:""};
-  state.pending[region][aeId][field] = val;
-  if (field === "status") renderRegion(region);
-};
-window.addClient = (region, aeId) => {
-  const nc = state.pending[region][aeId] || {name:"",status:"Demo Scheduled",pkg:""};
-  if (!nc.name.trim()) return;
-  mutate(region, () => {
-    const ae = state.data[region].find(a => a.id === aeId);
-    if (ae) ae.clients.push({...nc});
-    state.pending[region][aeId] = {name:"",status:"Demo Scheduled",pkg:""};
-  });
-};
-window.addAE = region => {
-  const name = state.newAE[region].trim();
-  if (!name) return;
-  mutate(region, () => {
-    state.data[region].push({id: Date.now(), name, clients:[]});
-    state.newAE[region] = "";
-  });
-};
-window.exportData = region => {
-  const blob = new Blob([JSON.stringify({region, data: state.data[region], exported: new Date().toISOString()}, null, 2)], {type:"application/json"});
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = `netsurit-${region}-leaderboard.json`;
-  a.click();
-};
-
+const SS={"Signed for Trial":{bg:"var(--signed-bg)",color:"var(--signed-color)",border:"var(--signed-border)"},"Sign up for Paid version":{bg:"var(--paid-bg)",color:"var(--paid-color)",border:"var(--paid-border)"},"Demo Attended":{bg:"var(--attended-bg)",color:"var(--attended-color)",border:"var(--attended-border)"},"Follow up Scheduled":{bg:"var(--followup-bg)",color:"var(--followup-color)",border:"var(--followup-border)"},"Demo Scheduled":{bg:"var(--sched-bg)",color:"var(--sched-color)",border:"var(--sched-border)"}};
+const STATUSES=Object.keys(SS);
+const PKGS=["","Foundation","Advanced","Premium","Elite"];
+const SIGNED_S=new Set(["Signed for Trial","Sign up for Paid version"]);
+const ATTENDED_S=new Set(["Demo Attended","Follow up Scheduled","Signed for Trial","Sign up for Paid version"]);
+const GOAL=90;
+const TROPHY=["🥇","🥈","🥉"];
+const REGIONS={us:{label:"United States",objective:"Secure AI Demos",sk:"netsurit_us_v8",showSigned:true,init:[{id:1,name:"Adison Kyslinger",clients:[{name:"Senior Housing Partners",status:"Signed for Trial",pkg:"Foundation"},{name:"Kunk Law",status:"Signed for Trial",pkg:"Foundation"},{name:"Buckhorn",status:"Signed for Trial",pkg:"Foundation"},{name:"Facilities Electric",status:"Follow up Scheduled",pkg:""},{name:"Dulworth",status:"Demo Scheduled",pkg:""},{name:"WarrenSW",status:"Demo Scheduled",pkg:""},{name:"BIC",status:"Demo Attended",pkg:""},{name:"Auto Finance",status:"Demo Attended",pkg:""},{name:"Clovis",status:"Demo Attended",pkg:""},{name:"J Berry",status:"Demo Attended",pkg:""},{name:"Chilton",status:"Demo Scheduled",pkg:""},{name:"TOMCO",status:"Demo Scheduled",pkg:""}]},{id:2,name:"Katya Yushanova",clients:[{name:"Blair & Potts",status:"Demo Attended",pkg:""},{name:"Soule, Blake & Wechsler",status:"Demo Attended",pkg:""},{name:"Tal",status:"Signed for Trial",pkg:"Foundation"}]},{id:3,name:"Kerry Marc Goldflam",clients:[{name:"The Royalty Network",status:"Signed for Trial",pkg:"Foundation"},{name:"Security Council Report",status:"Demo Attended",pkg:""}]},{id:4,name:"Kyle Little",clients:[{name:"Canyon Crossroads Animal Hosp.",status:"Demo Attended",pkg:""}]},{id:5,name:"Bo Mthombeni",clients:[]},{id:6,name:"Brooks Bornhofft",clients:[{name:"Community Concepts",status:"Signed for Trial",pkg:"Advanced"}]},{id:7,name:"Dan Edge",clients:[{name:"Whitestone",status:"Signed for Trial",pkg:"Foundation"},{name:"Deep Foundations",status:"Signed for Trial",pkg:"Foundation"},{name:"Pollock Krasner Foundation",status:"Sign up for Paid version",pkg:""},{name:"MacVean Lewis Sherwin & McDermott",status:"Demo Scheduled",pkg:""}]},{id:8,name:"Gilbert Verbiest",clients:[]},{id:9,name:"Jeremy Cohen",clients:[]},{id:10,name:"Katie Paulson",clients:[]},{id:11,name:"Shekhar Naidoo",clients:[{name:"Fischer Travel",status:"Sign up for Paid version",pkg:""}]}]},sa:{label:"South Africa",objective:"Discovery Meetings",sk:"netsurit_sa_v4",showSigned:false,init:[{id:101,name:"Julius Keyser",clients:[{name:"Client 1",status:"Demo Attended",pkg:""},{name:"Client 2",status:"Demo Attended",pkg:""},{name:"Client 3",status:"Demo Scheduled",pkg:""}]},{id:102,name:"Dharmesh Dullabh",clients:[{name:"Client 1",status:"Demo Scheduled",pkg:""},{name:"Client 2",status:"Demo Scheduled",pkg:""}]},{id:103,name:"Hugo Wessels",clients:[{name:"Client 1",status:"Demo Attended",pkg:""},{name:"Client 2",status:"Demo Scheduled",pkg:""},{name:"Client 3",status:"Demo Scheduled",pkg:""}]},{id:104,name:"Kyle Osler",clients:[{name:"Client 1",status:"Demo Attended",pkg:""}]},{id:105,name:"Dean Naidoo",clients:[]},{id:106,name:"Karen Owen",clients:[]},{id:107,name:"Matt Schlebusch",clients:[]},{id:108,name:"Robert Batey",clients:[]},{id:109,name:"Theo Mashego",clients:[{name:"Adviceworx",status:"Signed for Trial",pkg:"Foundation"}]}]}};
+let state={activeTab:"us",expanded:{us:new Set(),sa:new Set()},pending:{us:{},sa:{}},newAE:{us:"",sa:""},data:{us:JSON.parse(localStorage.getItem(REGIONS.us.sk)||"null")||REGIONS.us.init,sa:JSON.parse(localStorage.getItem(REGIONS.sa.sk)||"null")||REGIONS.sa.init},ts:{us:localStorage.getItem(REGIONS.us.sk+"_ts")||null,sa:localStorage.getItem(REGIONS.sa.sk+"_ts")||null}};
+function save(region){localStorage.setItem(REGIONS[region].sk,JSON.stringify(state.data[region]));state.ts[region]=Date.now();localStorage.setItem(REGIONS[region].sk+"_ts",state.ts[region]);renderRegion(region);}
+function mutate(region,fn){fn();save(region);}
+const stats=clients=>({signed:clients.filter(c=>SIGNED_S.has(c.status)).length,attended:clients.filter(c=>ATTENDED_S.has(c.status)).length,sched:clients.length});
+const ranked=data=>[...data].sort((a,b)=>{const sa=stats(a.clients),sb=stats(b.clients);if(sb.signed!==sa.signed)return sb.signed-sa.signed;if(sb.attended!==sa.attended)return sb.attended-sa.attended;return sb.sched-sa.sched;});
+const fmtTime=ts=>ts?new Date(Number(ts)).toLocaleString([],{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"}):"Never";
+const badgeStyle=s=>{const x=SS[s]||SS["Demo Scheduled"];return`background:${x.bg};color:${x.color};border-color:${x.border}`;};
+function renderRegion(region){const cfg=REGIONS[region];const r=ranked(state.data[region]);const total=state.data[region].reduce((s,ae)=>s+ae.clients.length,0);const pct=Math.min(100,Math.round(total/GOAL*100));const barColor=pct>=100?"var(--green-mid)":pct>=66?"var(--blue-mid)":"var(--amber-mid)";const totalTrials=state.data[region].reduce((s,ae)=>s+ae.clients.filter(c=>c.status==="Signed for Trial").length,0);const gridClass=cfg.showSigned?"grid-us":"grid-sa";const metric3=`<div class="metric${totalTrials>0?' accent':''}"><div class="metric-label">Free Trial total</div><div class="metric-value">${totalTrials}</div></div>`;const headCols=cfg.showSigned?`<span class="th">Account Executive</span><span class="th center">Sched.</span><span class="th center">Attended</span><span class="th center">Signed</span><span></span>`:`<span class="th">Account Executive</span><span class="th center">Sched.</span><span class="th center">Attended</span><span></span>`;let html=`<div class="metrics"><div class="metric"><div class="metric-label">Meetings logged</div><div class="metric-value">${total}<span class="metric-sub"> / ${GOAL}</span></div></div><div class="metric"><div class="metric-label">Goal progress</div><div class="metric-value" style="color:${barColor}">${pct}%</div></div>${metric3}</div><div class="progress-wrap"><div class="progress-labels"><span>${total} of ${GOAL} meetings</span><span style="font-weight:500;color:${barColor}">${pct}% to goal</span></div><div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%;background:${barColor}"></div></div></div><div class="legend">${STATUSES.map(s=>`<span class="badge" style="${badgeStyle(s)}">${s}</span>`).join("")}</div><div class="table-wrap"><div class="table-head ${gridClass}"><span class="th">#</span>${headCols}</div>`;
+r.forEach((ae,idx)=>{const st=stats(ae.clients);const isOpen=state.expanded[region].has(ae.id);let rank=1;for(let i=0;i<idx;i++){if(stats(r[i].clients).signed>st.signed)rank=i+2;}const nc=state.pending[region][ae.id]||{name:"",status:"Demo Scheduled",pkg:""};const hasSigned=st.signed>0;const rankLabel=rank<=3?`<span class="ae-rank">${TROPHY[rank-1]}</span>`:`<span class="ae-rank num">#${rank}</span>`;const ns=SS[nc.status]||SS["Demo Scheduled"];const statCells=cfg.showSigned?`<div class="ae-stat${st.sched===0?" muted":""}">${st.sched||"—"}</div><div class="ae-stat${st.attended===0?" muted":""}">${st.attended||"—"}</div><div class="ae-stat">${hasSigned?`<span class="signed-pill">${st.signed}</span>`:`<span style="color:var(--text-faint)">—</span>`}</div>`:`<div class="ae-stat${st.sched===0?" muted":""}">${st.sched||"—"}</div><div class="ae-stat${st.attended===0?" muted":""}">${st.attended||"—"}</div>`;html+=`<div class="ae-row-wrap"><div class="ae-row ${gridClass}${isOpen?" open":""}" onclick="toggleExpand('${region}',${ae.id})"><div>${rankLabel}</div><div class="ae-name${hasSigned?" active":(st.sched>0?"":" muted")}">${ae.name}</div>${statCells}<div class="chevron-cell"><i class="ti ti-chevron-${isOpen?"up":"down"}" style="font-size:15px;color:var(--text-muted)"></i></div></div>`;if(isOpen){const pkgCol=cfg.showSigned?`<col style="width:20%"/>`:``;const pkgTh=cfg.showSigned?`<th style="padding-left:10px">Package</th>`:``;html+=`<div class="ae-detail" onclick="event.stopPropagation()">`;if(ae.clients.length>0){html+=`<table class="clients-table"><colgroup><col style="width:35%"/><col style="width:${cfg.showSigned?'35%':'55%'}"/>${pkgCol}<col style="width:10%"/></colgroup><thead><tr><th>Client</th><th style="padding-left:10px">Status</th>${pkgTh}<th></th></tr></thead><tbody>`;ae.clients.forEach((c,ci)=>{const cs=SS[c.status]||SS["Demo Scheduled"];const stOpts=STATUSES.map(s=>`<option value="${s}"${s===c.status?" selected":""}>${s}</option>`).join("");const pkgCell=cfg.showSigned?`<td style="padding-left:10px"><select class="pkg-select" onchange="updateClient('${region}',${ae.id},${ci},'pkg',this.value)">${PKGS.map(p=>`<option value="${p}"${p===c.pkg?" selected":""}>${p||"—"}</option>`).join("")}</select></td>`:``;html+=`<tr><td>${c.name}</td><td style="padding-left:10px"><select class="status-select" onchange="updateClient('${region}',${ae.id},${ci},'status',this.value)" style="background:${cs.bg};color:${cs.color};border:0.5px solid ${cs.border}">${stOpts}</select></td>${pkgCell}<td style="text-align:right"><button class="del-btn" onclick="removeClient('${region}',${ae.id},${ci})"><i class="ti ti-trash" style="font-size:14px"></i></button></td></tr>`;});html+=`</tbody></table>`;}const stOpts2=STATUSES.map(s=>`<option value="${s}"${s===nc.status?" selected":""}>${s}</option>`).join("");const pkgSel=cfg.showSigned?`<select class="add-pkg-sel" onchange="setPending('${region}',${ae.id},'pkg',this.value)">${PKGS.map(p=>`<option value="${p}"${p===nc.pkg?" selected":""}>${p||"No package"}</option>`).join("")}</select>`:``;html+=`<div class="add-client-row"><input class="add-input" type="text" placeholder="Client name…" value="${nc.name.replace(/"/g,'&quot;')}" oninput="setPending('${region}',${ae.id},'name',this.value)" onkeydown="if(event.key==='Enter')addClient('${region}',${ae.id})"/><select class="add-status-sel" onchange="setPending('${region}',${ae.id},'status',this.value)" style="background:${ns.bg};color:${ns.color};border:0.5px solid ${ns.border}">${stOpts2}</select>${pkgSel}<button class="add-btn" onclick="addClient('${region}',${ae.id})">+ Add client</button></div>`;if(ae.clients.length===0)html+=`<p class="empty-msg">No clients yet — add one above.</p>`;html+=`</div>`;}html+=`</div>`;});
+html+=`</div><div class="add-ae-row"><input class="add-ae-input" type="text" placeholder="Add a new AE…" value="${state.newAE[region].replace(/"/g,'&quot;')}" oninput="state.newAE['${region}']=this.value" onkeydown="if(event.key==='Enter')addAE('${region}')"/><button class="add-ae-btn" onclick="addAE('${region}')">+ Add AE</button></div><div class="sync-bar"><span>Last updated: ${fmtTime(state.ts[region])}</span><button class="export-btn" onclick="exportData('${region}')"><i class="ti ti-download" style="font-size:13px"></i> Export JSON</button></div>`;
+document.getElementById("tab-"+region).innerHTML=html;}
+window.switchTab=tab=>{state.activeTab=tab;document.querySelectorAll(".tab-btn").forEach((b,i)=>b.classList.toggle("active",["us","sa"][i]===tab));document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));document.getElementById("tab-"+tab).classList.add("active");};
+window.toggleExpand=(region,id)=>{state.expanded[region].has(id)?state.expanded[region].delete(id):state.expanded[region].add(id);renderRegion(region);};
+window.updateClient=(region,aeId,ci,field,val)=>mutate(region,()=>{const ae=state.data[region].find(a=>a.id===aeId);if(ae)ae.clients[ci][field]=val;});
+window.removeClient=(region,aeId,ci)=>mutate(region,()=>{const ae=state.data[region].find(a=>a.id===aeId);if(ae)ae.clients.splice(ci,1);});
+window.setPending=(region,aeId,field,val)=>{if(!state.pending[region][aeId])state.pending[region][aeId]={name:"",status:"Demo Scheduled",pkg:""};state.pending[region][aeId][field]=val;if(field==="status")renderRegion(region);};
+window.addClient=(region,aeId)=>{const nc=state.pending[region][aeId]||{name:"",status:"Demo Scheduled",pkg:""};if(!nc.name.trim())return;mutate(region,()=>{const ae=state.data[region].find(a=>a.id===aeId);if(ae)ae.clients.push({...nc});state.pending[region][aeId]={name:"",status:"Demo Scheduled",pkg:""};});};
+window.addAE=region=>{const name=state.newAE[region].trim();if(!name)return;mutate(region,()=>{state.data[region].push({id:Date.now(),name,clients:[]});state.newAE[region]="";});};
+window.exportData=region=>{const blob=new Blob([JSON.stringify({region,data:state.data[region],exported:new Date().toISOString()},null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=`netsurit-${region}-leaderboard.json`;a.click();};
 renderRegion("us");
 renderRegion("sa");
 </script>
