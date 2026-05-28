@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Netsurit · AE Sprint Leaderboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.0.0/tabler-icons.min.css"/>
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --surface2: #f1efe8;
+    --border: rgba(0,0,0,0.09);
+    --border-strong: rgba(0,0,0,0.16);
+    --text: #1a1917;
+    --text-muted: #6b6a66;
+    --text-faint: #a8a79f;
+    --radius: 10px;
+    --radius-lg: 14px;
+    --signed-bg: #EAF3DE; --signed-color: #27500A; --signed-border: #639922;
+    --attended-bg: #E6F1FB; --attended-color: #0C447C; --attended-border: #378ADD;
+    --followup-bg: #E1F5EE; --followup-color: #085041; --followup-border: #1D9E75;
+    --sched-bg: #F1EFE8; --sched-color: #444441; --sched-border: #B4B2A9;
+    --paid-bg: #FAEEDA; --paid-color: #633806; --paid-border: #EF9F27;
+    --green: #27500A; --green-mid: #639922; --green-light: #EAF3DE;
+    --amber: #633806; --amber-mid: #EF9F27; --amber-light: #FAEEDA;
+    --blue: #0C447C; --blue-mid: #378ADD; --blue-light: #E6F1FB;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #181816; --surface: #222220; --surface2: #2c2c2a;
+      --border: rgba(255,255,255,0.08); --border-strong: rgba(255,255,255,0.15);
+      --text: #f0efe9; --text-muted: #9b9a94; --text-faint: #5c5c58;
+      --signed-bg:#1a2e0d;--signed-color:#a0d060;--signed-border:#3b6d11;
+      --attended-bg:#0d1e33;--attended-color:#7ab8ef;--attended-border:#185FA5;
+      --followup-bg:#0b2420;--followup-color:#5bcba0;--followup-border:#0F6E56;
+      --sched-bg:#2a2a27;--sched-color:#b0afa8;--sched-border:#5f5e5a;
+      --paid-bg:#2e2008;--paid-color:#f5c97a;--paid-border:#854F0B;
+      --green:#a0d060;--green-mid:#3b6d11;--green-light:#1a2e0d;
+      --amber:#f5c97a;--amber-mid:#854F0B;--amber-light:#2e2008;
+      --blue:#7ab8ef;--blue-mid:#185FA5;--blue-light:#0d1e33;
+    }
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  a { color: inherit; }
+  button, select, input { font-family: inherit; }
+
+  .page { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+  .header { margin-bottom: 1.5rem; }
+  .header-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .header-title { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .header-sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+  .live-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; padding: 3px 9px; border-radius: 99px; background: var(--signed-bg); color: var(--signed-color); border: 0.5px solid var(--signed-border); }
+  .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-mid); animation: blink 2s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+
+  .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.25rem; }
+  .metric { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 12px 16px; }
+  .metric.accent { background: var(--signed-bg); border-color: var(--signed-border); }
+  .metric-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
+  .metric.accent .metric-label { color: var(--signed-color); opacity: 0.75; }
+  .metric-value { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+  .metric.accent .metric-value { color: var(--signed-color); }
+  .metric-sub { font-size: 13px; font-weight: 400; color: var(--text-muted); }
+
+  .progress-wrap { margin-bottom: 1.25rem; }
+  .progress-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+  .progress-bar-bg { height: 6px; background: var(--surface2); border-radius: 99px; overflow: hidden; border: 0.5px solid var(--border); }
+  .progress-bar-fill { height: 100%; border-radius: 99px; transition: width 0.5s ease; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.25rem; }
+  .badge { display: inline-flex; align-items: center; font-size: 11px; padding: 3px 10px; border-radius: 99px; white-space: nowrap; border: 0.5px solid; }
+
+  .table-wrap { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1rem; }
+  .table-head { display: grid; grid-template-columns: 48px 1fr 62px 72px 76px 36px; padding: 8px 16px; background: var(--surface2); border-bottom: 0.5px solid var(--border); }
+  .th { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .th.center { text-align: center; }
+
+  .ae-row-wrap { border-bottom: 0.5px solid var(--border); }
+  .ae-row-wrap:last-child { border-bottom: none; }
+  .ae-row { display: grid; grid-template-columns: 48px 1fr 62px 72px 76px 36px; padding: 12px 16px; cursor: pointer; transition: background 0.1s; align-items: center; }
+  .ae-row:hover { background: var(--surface2); }
+  .ae-row.open { background: var(--surface2); }
+  .ae-rank { font-size: 18px; }
+  .ae-rank.num { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+  .ae-name { font-size: 14px; }
+  .ae-name.active { font-weight: 500; }
+  .ae-name.muted { color: var(--text-muted); }
+  .ae-stat { text-align: center; font-size: 14px; }
+  .ae-stat.muted { color: var(--text-faint); }
+  .signed-pill { font-size: 12px; font-weight: 600; padding: 2px 12px; border-radius: 99px; background: var(--signed-bg); color: var(--signed-color); border: 0.5px solid var(--signed-border); display: inline-block; }
+  .chevron-cell { display: flex; align-items: center; justify-content: center; }
+
+  .ae-detail { padding: 0 16px 16px; border-top: 0.5px solid var(--border); background: var(--surface2); }
+  .clients-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; table-layout: fixed; }
+  .clients-table th { text-align: left; font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; padding: 10px 0 6px; }
+  .clients-table th:nth-child(2), .clients-table th:nth-child(3) { padding-left: 10px; }
+  .clients-table td { padding: 5px 0; font-size: 13px; vertical-align: middle; }
+  .clients-table td:nth-child(2), .clients-table td:nth-child(3) { padding-left: 10px; }
+  .clients-table col:nth-child(1) { width: 33%; }
+  .clients-table col:nth-child(2) { width: 37%; }
+  .clients-table col:nth-child(3) { width: 20%; }
+  .clients-table col:nth-child(4) { width: 10%; }
+
+  .status-select, .pkg-select {
+    font-size: 11px; padding: 4px 8px; border-radius: 99px; cursor: pointer; width: 100%;
+    font-family: 'DM Sans', sans-serif; outline: none;
+  }
+  .pkg-select { border-radius: 6px; background: var(--surface); color: var(--text-muted); border: 0.5px solid var(--border-strong); font-size: 12px; }
+
+  .add-client-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .add-input { flex: 1 1 140px; min-width: 110px; font-size: 13px; padding: 6px 12px; border-radius: var(--radius); border: 0.5px solid var(--border-strong); background: var(--surface); color: var(--text); outline: none; transition: border-color 0.15s; }
+  .add-input:focus { border-color: var(--blue-mid); }
+  .add-status-sel { font-size: 11px; padding: 6px 9px; border-radius: 99px; cursor: pointer; font-family: 'DM Sans', sans-serif; outline: none; }
+  .add-pkg-sel { font-size: 12px; padding: 6px 9px; border-radius: 6px; background: var(--surface); color: var(--text-muted); border: 0.5px solid var(--border-strong); cursor: pointer; font-family: 'DM Sans', sans-serif; outline: none; }
+  .add-btn { font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: var(--radius); background: var(--signed-bg); color: var(--signed-color); border: 0.5px solid var(--signed-border); cursor: pointer; white-space: nowrap; transition: opacity 0.1s; }
+  .add-btn:hover { opacity: 0.85; }
+  .del-btn { background: none; border: none; cursor: pointer; color: var(--text-faint); padding: 2px 4px; opacity: 0.5; transition: opacity 0.15s; }
+  .del-btn:hover { opacity: 1; color: #E24B4A; }
+
+  .add-ae-row { display: flex; gap: 8px; margin-bottom: 1rem; }
+  .add-ae-input { flex: 1; font-size: 13px; padding: 8px 14px; border-radius: var(--radius); border: 0.5px solid var(--border-strong); background: var(--surface); color: var(--text); outline: none; transition: border-color 0.15s; }
+  .add-ae-input:focus { border-color: var(--blue-mid); }
+  .add-ae-btn { font-size: 13px; font-weight: 500; padding: 8px 18px; border-radius: var(--radius); background: var(--surface); color: var(--text); border: 0.5px solid var(--border-strong); cursor: pointer; white-space: nowrap; transition: background 0.1s; }
+  .add-ae-btn:hover { background: var(--surface2); }
+
+  .sync-bar { display: flex; align-items: center; justify-content: space-between; font-size: 11px; color: var(--text-muted); margin-top: 0.75rem; padding: 0 2px; }
+  .sync-btn { background: none; border: 0.5px solid var(--border); border-radius: 6px; padding: 4px 8px; cursor: pointer; color: var(--text-muted); font-size: 12px; display: flex; align-items: center; gap: 4px; transition: background 0.1s; }
+  .sync-btn:hover { background: var(--surface); }
+  .empty-msg { font-size: 12px; color: var(--text-faint); padding: 6px 0; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .spinning { animation: spin 0.7s linear infinite; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-eyebrow">
+      <span>Netsurit · 30-Day AE Sprint · Secure AI · 🇺🇸 United States</span>
+      <span class="live-badge"><span class="live-dot"></span>Live</span>
+    </div>
+    <div class="header-title">AE Sprint Leaderboard</div>
+    <div class="header-sub">Goal: 90 meetings in 30 days · 20 AEs · South Africa &amp; USA</div>
+  </div>
+
+  <div id="app"></div>
+</div>
+
+<script>
+const SS = {
+  "Signed for Trial":         {bg:"var(--signed-bg)",  color:"var(--signed-color)",  border:"var(--signed-border)"},
+  "Sign up for Paid version": {bg:"var(--paid-bg)",    color:"var(--paid-color)",    border:"var(--paid-border)"},
+  "Demo Attended":            {bg:"var(--attended-bg)",color:"var(--attended-color)",border:"var(--attended-border)"},
+  "Follow up Scheduled":      {bg:"var(--followup-bg)",color:"var(--followup-color)",border:"var(--followup-border)"},
+  "Demo Scheduled":           {bg:"var(--sched-bg)",   color:"var(--sched-color)",   border:"var(--sched-border)"},
+};
+const STATUSES = Object.keys(SS);
+const PKGS = ["","Intro","Starter","Pro","Enterprise"];
+const SIGNED_S = new Set(["Signed for Trial","Sign up for Paid version"]);
+const ATTENDED_S = new Set(["Demo Attended","Follow up Scheduled","Signed for Trial","Sign up for Paid version"]);
+const GOAL = 90;
+const TROPHY = ["🥇","🥈","🥉"];
+const SK = "netsurit_lb_v2";
+
+const INIT = [
+  {id:1, name:"Adison Kyslinger", clients:[
+    {name:"Senior Housing Partners",status:"Signed for Trial",pkg:"Starter"},
+    {name:"Kunk Law",status:"Signed for Trial",pkg:"Intro"},
+    {name:"Buckhorn",status:"Signed for Trial",pkg:"Starter"},
+    {name:"Facilities Electric",status:"Follow up Scheduled",pkg:""},
+    {name:"Dulworth",status:"Demo Scheduled",pkg:""},
+    {name:"WarrenSW",status:"Demo Scheduled",pkg:""},
+    {name:"BIC",status:"Demo Attended",pkg:""},
+    {name:"Auto Finance",status:"Demo Attended",pkg:""},
+    {name:"Clovis",status:"Demo Attended",pkg:""},
+    {name:"J Berry",status:"Demo Attended",pkg:""},
+    {name:"Chilton",status:"Demo Scheduled",pkg:""},
+    {name:"TOMCO",status:"Demo Scheduled",pkg:""},
+  ]},
+  {id:2, name:"Katya Yushanova", clients:[
+    {name:"Blair & Potts",status:"Demo Attended",pkg:""},
+    {name:"Soule, Blake & Wechsler",status:"Demo Attended",pkg:""},
+    {name:"Tal",status:"Demo Scheduled",pkg:""},
+  ]},
+  {id:3, name:"Kerry Marc Goldflam", clients:[
+    {name:"The Royalty Network",status:"Signed for Trial",pkg:""},
+    {name:"Security Council Report",status:"Demo Attended",pkg:""},
+  ]},
+  {id:4, name:"Kyle Little", clients:[{name:"Canyon Crossroads Animal Hosp.",status:"Demo Attended",pkg:""}]},
+  {id:5, name:"Bo Mthombeni", clients:[]},
+  {id:6, name:"Brooks Bornhofft", clients:[{name:"Community Concepts",status:"Signed for Trial",pkg:""}]},
+  {id:7, name:"Dan Edge", clients:[
+    {name:"Whitestone",status:"Signed for Trial",pkg:""},
+    {name:"Deep Foundations",status:"Signed for Trial",pkg:""},
+    {name:"Pollock Krasner Foundation",status:"Sign up for Paid version",pkg:""},
+  ]},
+  {id:8, name:"Gilbert Verbiest", clients:[]},
+  {id:9, name:"Jeremy Cohen", clients:[]},
+  {id:10, name:"Katie Paulson", clients:[]},
+  {id:11, name:"Shekhar Naidoo", clients:[]},
+];
+
+let state = {
+  data: JSON.parse(localStorage.getItem(SK) || "null") || INIT,
+  expanded: new Set(),
+  pending: {},
+  newAE: "",
+  lastUpdated: localStorage.getItem(SK+"_ts") || null,
+  syncing: false,
+};
+
+const save = () => {
+  localStorage.setItem(SK, JSON.stringify(state.data));
+  state.lastUpdated = Date.now();
+  localStorage.setItem(SK+"_ts", state.lastUpdated);
+  render();
+};
+
+const mutate = fn => { fn(); save(); };
+
+const stats = clients => ({
+  signed:   clients.filter(c => SIGNED_S.has(c.status)).length,
+  attended: clients.filter(c => ATTENDED_S.has(c.status)).length,
+  sched:    clients.length,
+});
+
+const ranked = data => [...data].sort((a, b) => {
+  const sa = stats(a.clients), sb = stats(b.clients);
+  if (sb.signed !== sa.signed) return sb.signed - sa.signed;
+  if (sb.attended !== sa.attended) return sb.attended - sa.attended;
+  return sb.sched - sa.sched;
+});
+
+const fmtTime = ts => {
+  if (!ts) return "Never";
+  return new Date(Number(ts)).toLocaleString([], {day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+};
+
+const badgeStyle = status => {
+  const s = SS[status] || SS["Demo Scheduled"];
+  return `background:${s.bg};color:${s.color};border-color:${s.border}`;
+};
+
+function render() {
+  const r = ranked(state.data);
+  const total = state.data.reduce((s, ae) => s + ae.clients.length, 0);
+  const pct = Math.min(100, Math.round(total / GOAL * 100));
+  const barColor = pct >= 100 ? "var(--green-mid)" : pct >= 66 ? "var(--blue-mid)" : "var(--amber-mid)";
+  const totalSigned = state.data.reduce((s, ae) => s + ae.clients.filter(c => c.status === "Signed for Trial").length, 0);
+
+  let html = `
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-label">Meetings logged</div>
+      <div class="metric-value">${total}<span class="metric-sub"> / ${GOAL}</span></div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Goal progress</div>
+      <div class="metric-value" style="color:${barColor}">${pct}%</div>
+    </div>
+    <div class="metric accent">
+      <div class="metric-label">Free Trial total</div>
+      <div class="metric-value">${totalSigned}</div>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-labels">
+      <span>${total} of ${GOAL} meetings</span>
+      <span style="font-weight:500;color:${barColor}">${pct}% to goal</span>
+    </div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" style="width:${pct}%;background:${barColor}"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    ${STATUSES.map(s => `<span class="badge" style="${badgeStyle(s)}">${s}</span>`).join("")}
+  </div>
+
+  <div class="table-wrap">
+    <div class="table-head">
+      <span class="th">#</span>
+      <span class="th">Account Executive</span>
+      <span class="th center">Sched.</span>
+      <span class="th center">Attended</span>
+      <span class="th center">Signed</span>
+      <span></span>
+    </div>`;
+
+  r.forEach((ae, idx) => {
+    const st = stats(ae.clients);
+    const isOpen = state.expanded.has(ae.id);
+    const rank = idx + 1;
+    const nc = state.pending[ae.id] || {name:"",status:"Demo Scheduled",pkg:""};
+    const hasSigned = st.signed > 0;
+    const rankLabel = rank <= 3
+      ? `<span class="ae-rank">${TROPHY[rank-1]}</span>`
+      : `<span class="ae-rank num">#${rank}</span>`;
+    const ns = SS[nc.status] || SS["Demo Scheduled"];
+
+    html += `
+    <div class="ae-row-wrap">
+      <div class="ae-row${isOpen?" open":""}" onclick="toggleExpand(${ae.id})">
+        <div>${rankLabel}</div>
+        <div class="ae-name${hasSigned?" active":" muted"}">${ae.name}</div>
+        <div class="ae-stat${st.sched===0?" muted":""}">${st.sched||"—"}</div>
+        <div class="ae-stat${st.attended===0?" muted":""}">${st.attended||"—"}</div>
+        <div class="ae-stat">${hasSigned?`<span class="signed-pill">${st.signed}</span>`:`<span style="color:var(--text-faint)">—</span>`}</div>
+        <div class="chevron-cell"><i class="ti ti-chevron-${isOpen?"up":"down"}" style="font-size:15px;color:var(--text-muted)"></i></div>
+      </div>`;
+
+    if (isOpen) {
+      html += `<div class="ae-detail" onclick="event.stopPropagation()">`;
+
+      if (ae.clients.length > 0) {
+        html += `<table class="clients-table"><colgroup><col/><col/><col/><col/></colgroup>
+          <thead><tr>
+            <th>Client</th><th>Status</th><th>Package</th><th></th>
+          </tr></thead><tbody>`;
+        ae.clients.forEach((c, ci) => {
+          const cs = SS[c.status] || SS["Demo Scheduled"];
+          const pkgOpts = PKGS.map(p => `<option value="${p}"${p===c.pkg?" selected":""}>${p||"—"}</option>`).join("");
+          const stOpts = STATUSES.map(s => `<option value="${s}"${s===c.status?" selected":""}>${s}</option>`).join("");
+          html += `<tr>
+            <td>${c.name}</td>
+            <td><select class="status-select" onchange="updateClient(${ae.id},${ci},'status',this.value)" style="background:${cs.bg};color:${cs.color};border:0.5px solid ${cs.border}">${stOpts}</select></td>
+            <td><select class="pkg-select" onchange="updateClient(${ae.id},${ci},'pkg',this.value)">${pkgOpts}</select></td>
+            <td style="text-align:right"><button class="del-btn" onclick="removeClient(${ae.id},${ci})"><i class="ti ti-trash" style="font-size:14px"></i></button></td>
+          </tr>`;
+        });
+        html += `</tbody></table>`;
+      }
+
+      const stOpts2 = STATUSES.map(s => `<option value="${s}"${s===nc.status?" selected":""}>${s}</option>`).join("");
+      const pkgOpts2 = PKGS.map(p => `<option value="${p}"${p===nc.pkg?" selected":""}>${p||"No package"}</option>`).join("");
+      html += `
+      <div class="add-client-row">
+        <input class="add-input" type="text" placeholder="Client name…" value="${nc.name.replace(/"/g,'&quot;')}" oninput="setPending(${ae.id},'name',this.value)" onkeydown="if(event.key==='Enter')addClient(${ae.id})"/>
+        <select class="add-status-sel" onchange="setPending(${ae.id},'status',this.value)" style="background:${ns.bg};color:${ns.color};border:0.5px solid ${ns.border}">${stOpts2}</select>
+        <select class="add-pkg-sel" onchange="setPending(${ae.id},'pkg',this.value)">${pkgOpts2}</select>
+        <button class="add-btn" onclick="addClient(${ae.id})">+ Add client</button>
+      </div>`;
+      if (ae.clients.length === 0) html += `<p class="empty-msg">No clients yet — add one above.</p>`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+  });
+
+  html += `</div>`;
+
+  html += `
+  <div class="add-ae-row">
+    <input class="add-ae-input" type="text" id="newAEInput" placeholder="Add a new AE…" value="${state.newAE.replace(/"/g,'&quot;')}" oninput="state.newAE=this.value" onkeydown="if(event.key==='Enter')addAE()"/>
+    <button class="add-ae-btn" onclick="addAE()">+ Add AE</button>
+  </div>
+
+  <div class="sync-bar">
+    <span>Last updated: ${fmtTime(state.lastUpdated)} · Data saved in browser</span>
+    <button class="sync-btn" onclick="exportData()"><i class="ti ti-download" style="font-size:13px"></i> Export JSON</button>
+  </div>`;
+
+  document.getElementById("app").innerHTML = html;
+}
+
+window.toggleExpand = id => { state.expanded.has(id) ? state.expanded.delete(id) : state.expanded.add(id); render(); };
+window.updateClient = (aeId, ci, field, val) => mutate(() => { const ae = state.data.find(a => a.id === aeId); if (ae) ae.clients[ci][field] = val; });
+window.removeClient = (aeId, ci) => mutate(() => { const ae = state.data.find(a => a.id === aeId); if (ae) ae.clients.splice(ci, 1); });
+window.setPending = (aeId, field, val) => { if (!state.pending[aeId]) state.pending[aeId] = {name:"",status:"Demo Scheduled",pkg:""}; state.pending[aeId][field] = val; if (field === "status") render(); };
+window.addClient = aeId => { const nc = state.pending[aeId] || {name:"",status:"Demo Scheduled",pkg:""}; if (!nc.name.trim()) return; mutate(() => { const ae = state.data.find(a => a.id === aeId); if (ae) ae.clients.push({...nc}); state.pending[aeId] = {name:"",status:"Demo Scheduled",pkg:""}; }); };
+window.addAE = () => { const name = state.newAE.trim(); if (!name) return; mutate(() => { state.data.push({id: Date.now(), name, clients: []}); state.newAE = ""; }); };
+window.exportData = () => {
+  const blob = new Blob([JSON.stringify({data: state.data, exported: new Date().toISOString()}, null, 2)], {type:"application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "netsurit-leaderboard.json"; a.click();
+};
+
+render();
+</script>
+</body>
+</html>
